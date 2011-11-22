@@ -14,7 +14,7 @@ def iso_flag(iso, flag_path=u''):
     defaults to ``'flags/%s.gif'``
     
     """
-    if not settings.MEDIA_URL:
+    if not settings.STATIC_URL:
         return u''
     default = u'-'
     if not iso:
@@ -29,4 +29,4 @@ def iso_flag(iso, flag_path=u''):
             flag_name = flag_path % iso
         except (ValueError, TypeError):
             return u''
-    return u''.join((settings.MEDIA_URL, flag_name))
+    return u''.join((settings.STATIC_URL, flag_name))
